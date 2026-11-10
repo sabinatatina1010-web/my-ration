@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --background: #eef8ef;
+  --foreground: #1f3d2e;
+  --brand: #2f8f55;
+  --brand-deep: #1d5c3a;
+  --brand-soft: #d8f0dd;
+  --accent: #ff8a2b;
+  --accent-warm: #ffc14d;
+  --surface: rgba(255, 255, 255, 0.88);
+  --muted: #5f7a6b;
+  --ring: rgba(255, 138, 43, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-accent-warm: var(--accent-warm);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-nunito);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-nunito), sans-serif;
+}
+
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 70% 55% at 78% 28%, rgba(255, 255, 255, 0.55), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 12% 8%, rgba(216, 240, 221, 0.95), transparent 55%),
+    linear-gradient(180deg, #dff3e3 0%, #eef8ef 42%, #f7fcf8 100%);
+}
+
+.wave-divider {
+  background:
+    radial-gradient(120% 80% at 50% -10%, #eef8ef 40%, transparent 41%),
+    #ffffff;
+}
+
+.cta-gradient {
+  background-image: linear-gradient(105deg, #ff8a2b 0%, #ffb03a 55%, #ffc14d 100%);
+  box-shadow: 0 12px 28px rgba(255, 138, 43, 0.28);
+}
+
+.cta-gradient:hover {
+  filter: brightness(1.03);
+}
+
+.leaf-float {
+  animation: leaf-float 7s ease-in-out infinite;
+}
+
+.leaf-float-delayed {
+  animation: leaf-float 8.5s ease-in-out infinite;
+  animation-delay: -2.4s;
+}
+
+.hero-rise {
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-rise-delayed {
+  animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.hero-image-in {
+  animation: hero-image-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+@keyframes leaf-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf-float,
+  .leaf-float-delayed,
+  .hero-rise,
+  .hero-rise-delayed,
+  .hero-image-in {
+    animation: none;
+  }
+}
